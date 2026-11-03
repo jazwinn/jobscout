@@ -163,10 +163,10 @@ func TestProviderOptionsIncludeOpenRouter(t *testing.T) {
 	}
 }
 
-func TestProviderOptionsCountIsFive(t *testing.T) {
+func TestProviderOptionsCountIsSix(t *testing.T) {
 	options := config.ProviderOptions()
-	if len(options) != 5 {
-		t.Fatalf("config.ProviderOptions() len = %d, want 5 (gemini, openai, anthropic, openrouter, ollama)", len(options))
+	if len(options) != 6 {
+		t.Fatalf("config.ProviderOptions() len = %d, want 6 (gemini, openai, anthropic, openrouter, ollama, claude-code)", len(options))
 	}
 }
 

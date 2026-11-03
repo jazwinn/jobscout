@@ -24,7 +24,7 @@ const (
 )
 
 func defaultLLMPreferredOrder() []string {
-	return []string{"gemini", "openai", "anthropic", "ollama"}
+	return []string{"gemini", "openai", "anthropic", "ollama", "claude-code"}
 }
 
 func llmAuthConfigDefined(auth LLMAuthConfig) bool {

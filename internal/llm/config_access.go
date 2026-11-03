@@ -75,7 +75,7 @@ func envVarForProvider(provider string) string {
 		return "ANTHROPIC_API_KEY"
 	case "openrouter":
 		return "OPENROUTER_API_KEY"
-	case "ollama":
+	case "ollama", "claude-code":
 		return ""
 	default:
 		return "GEMINI_API_KEY"

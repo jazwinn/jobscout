@@ -165,7 +165,7 @@ func defaultAppConfig() AppConfig {
 	cfg.LLM.JobFiltering = true
 	cfg.LLM.CompanyHealth = true
 	cfg.LLM.FallbackToNonLLM = true
-	cfg.LLM.PreferredOrder = []string{"gemini", "openai", "openrouter", "anthropic", "ollama"}
+	cfg.LLM.PreferredOrder = []string{"gemini", "openai", "openrouter", "anthropic", "ollama", "claude-code"}
 	cfg.LLM.Auth.Mode = llmAuthModeEnv
 	cfg.LLM.Auth.EnvVar = envVarForProvider(cfg.LLM.Provider)
 	cfg.LLM.Providers = defaultLLMProviders()
@@ -243,6 +243,12 @@ func defaultLLMProviders() map[string]LLMProviderConfig {
 		"ollama": {
 			Model:    "llama3",
 			Endpoint: "http://localhost:11434",
+			Auth: LLMAuthConfig{
+				None: true,
+			},
+		},
+		"claude-code": {
+			Model: "haiku",
 			Auth: LLMAuthConfig{
 				None: true,
 			},

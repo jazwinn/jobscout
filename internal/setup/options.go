@@ -33,6 +33,8 @@ func ProviderLabel(provider string) string {
 		return "OpenRouter"
 	case "ollama":
 		return "Local"
+	case "claude-code":
+		return "Claude Code subscription"
 	default:
 		return provider
 	}

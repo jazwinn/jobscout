@@ -172,8 +172,14 @@ func initLLM(ctx context.Context, provider string, providerCfg LLMProviderConfig
 		}
 		model, err := ollama.New(opts...)
 		return capLLMMaxTokens(model, provider, providerCfg), err
+	case claudeCodeProvider:
+		model, err := newClaudeCodeLLM(modelName)
+		if err != nil {
+			return nil, err
+		}
+		return capLLMMaxTokens(model, provider, providerCfg), nil
 	default:
-		return nil, fmt.Errorf("unsupported LLM provider: %s. Supported providers: openai, anthropic, gemini, openrouter, ollama", provider)
+		return nil, fmt.Errorf("unsupported LLM provider: %s. Supported providers: openai, anthropic, gemini, openrouter, ollama, claude-code", provider)
 	}
 }
 

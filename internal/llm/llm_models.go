@@ -195,6 +195,8 @@ func fetchAvailableLLMModelInfos(ctx context.Context, cfg AppConfig) ([]llmModel
 	case "ollama":
 		models, err := fetchOllamaModels(ctx, providerCfg)
 		return modelInfosFromIDs(models), err
+	case claudeCodeProvider:
+		return modelInfosFromIDs(claudeCodeModelOptions()), nil
 	default:
 		return nil, fmt.Errorf("unsupported LLM provider: %s", provider)
 	}
